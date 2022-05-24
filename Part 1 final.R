@@ -18,3 +18,28 @@ df <- data.frame(GE)
 rownames(df) <- df$Name_Description
 df$Name_Description=NULL
 
+# subsetting first 6 genes
+
+df[1:6,]
+
+#formatting table
+library(kableExtra)
+df[1:6,]
+
+head(df) %>%
+  kbl(caption = "gene expression data table") %>%
+  kable_paper(full_width = F, html_font = "Arial")
+
+#question 2
+
+colMeans(df[1:6,1:3])
+
+rowMeans(df[1:6,1:3])
+
+df$mean <- rowMeans(df)
+df$mean 
+
+
+
+
+
