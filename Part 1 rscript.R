@@ -10,3 +10,6 @@ urlfile <-"https://github.com/markziemann/SLE712_files/blob/master/assessment_ta
 destfile1 <- "growth_data.csv"
 
 download.file(urlfile,destfile1) 
+
+GE<-read.table(file="gene_expression.tsv", header= FALSE, fill= TRUE)
+str(GE)
