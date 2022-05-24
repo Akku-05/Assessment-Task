@@ -53,7 +53,19 @@ df$mean < 10
 Mean_filtered <- df[which(df$mean < 10),]
 subset(df,df$mean < 10)
 
+#question 5
 
+hist(df$mean, xlab = "mean", ylab = "expression", main = "Gene Expression")
 
+#question 6 (already downloaded file)
 
+GD
+colnames(GD)
+
+#question 6
+
+C <- c(GD)
+rowMeans(GD[,c(3,6)])
+
+Mean <- rowMeans(GD[,c(3,6)])
 
