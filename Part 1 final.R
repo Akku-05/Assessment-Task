@@ -11,4 +11,10 @@ download.file(URL,destfile=growth)
 GE <- read.delim("gene_expression.tsv")
 GD <-read.csv("growth_data.csv")
 str(GE)
+#Changing row names to gene expression name.
+row.names(GE) 
+colnames(GE)
+df <- data.frame(GE)
+rownames(df) <- df$Name_Description
+df$Name_Description=NULL
 
