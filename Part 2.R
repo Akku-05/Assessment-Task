@@ -21,7 +21,7 @@ gunzip("Sbac_cds.fa.gz")
 #listing the length of cds for E.coli and S.bacterium
 cds <- seqinr::read.fasta("ecoli_cds.fa")
 str(head(cds))
-seqinr::read.fasta("Sbac_cds.fa")
+seqinr:: read.fasta("Sbac_cds.fa")
 
 
 
