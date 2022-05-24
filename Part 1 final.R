@@ -37,7 +37,21 @@ colMeans(df[1:6,1:3])
 rowMeans(df[1:6,1:3])
 
 df$mean <- rowMeans(df)
-df$mean 
+A <- df[1:6,]
+GeneMean <- rowMeans(A)
+head(GeneMean) %>%
+  kbl(caption = "gene expression mean table") %>%
+  kable_paper(full_width = F, html_font = "Arial")
+
+#question 3
+
+B <-order(df$mean, decreasing=TRUE)
+HighestG <-B[1:10]
+
+#question 4
+df$mean < 10
+Mean_filtered <- df[which(df$mean < 10),]
+subset(df,df$mean < 10)
 
 
 
