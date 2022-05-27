@@ -79,5 +79,31 @@ c <-sd(SW2005)
 d <-sd(SW2020)
 
 # question 8
-boxplot(a,b,c,d)
+boxplot(a,b,c,d, names=("2005","2020","2005","2020",ylab="Growth rate(cm)", main= "SD of Growth "))
 grid()
+
+#question9
+NE2010 <- NE$Circumf_2010_cm
+
+SW2010 <- SW$Circumf_2010_cm
+growthrateNE <- ((NE2020-NE2010)/NE2010) #growth rate = ((present-past)growth/past growth)
+growthrateSW <- ((SW2020-SW2010)/SW2010)
+SWMean10 <- mean(growthrateSW)
+NEMean10 <-mean(growthrateNE)
+NEMean10      #Mean for northeast region for past 10 years
+SWMean10     #Mean for southwest region for past 10 years
+MeanGrowth <- mean(growthrateNE+growthrateSW)
+MeanGrowth      #Mean growth rate of both the site for past 10 years
+#Question 10
+
+res <- t.test (growthrateNE,growthrateSW)
+p.value <-res$p.value
+HEADER <- paste("P Value:", signif(p.value,3))
+
+mtext(HEADER)
+
+p.value2 <-wilcox.test(growthrateNE,growthrateSW)
+HEADER <- paste("P Value:", signif(p.value,3))
+
+mtext(HEADER)
+
