@@ -62,10 +62,22 @@ hist(df$mean, xlab = "mean", ylab = "expression", main = "Gene Expression")
 GD
 colnames(GD)
 
-#question 6
+#question 7
 
 C <- c(GD)
 rowMeans(GD[,c(3,6)])
 
 Mean <- rowMeans(GD[,c(3,6)])
+
+install.packages("matrixStats")
+library(matrixStats)
+GD$std= rowSds(as.matrix(GD[c(3,6)]))
+GD
+
+#Question 8
+ x <- GD$Circumf_2005_cm
+y <- GD$Circumf_2020_cm
+boxplot(x,y,names = c("2005","2020"), ylab="Growth", main="Growth at the start and end")
+
+
 
