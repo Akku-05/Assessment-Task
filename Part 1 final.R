@@ -63,21 +63,21 @@ GD
 colnames(GD)
 
 #question 7
+NE<-subset(GD,Site =="northeast")
+SW <- subset(GD,Site =="southwest")
+NE2005 <- NE$Circumf_2005_cm
+NE2020 <- NE$Circumf_2020_cm
+SW2005 <- SW$Circumf_2005_cm
+SW2020 <- SW$Circumf_2020_cm
+mean(NE2005)
+mean(NE2020)
+mean(SW2005)
+mean(SW2020)
+a <- sd(NE2005)
+b <-sd(NE2020)
+c <-sd(SW2005)
+d <-sd(SW2020)
 
-C <- c(GD)
-rowMeans(GD[,c(3,6)])
-
-Mean <- rowMeans(GD[,c(3,6)])
-
-install.packages("matrixStats")
-library(matrixStats)
-GD$std= rowSds(as.matrix(GD[c(3,6)]))
-GD
-
-#Question 8
- x <- GD$Circumf_2005_cm
-y <- GD$Circumf_2020_cm
-boxplot(x,y,names = c("2005","2020"), ylab="Growth", main="Growth at the start and end")
-
-
-
+# question 8
+boxplot(a,b,c,d)
+grid()
