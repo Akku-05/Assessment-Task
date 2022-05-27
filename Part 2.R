@@ -12,7 +12,7 @@ gunzip("ecoli_cds.fa.gz")
 library("seqinr")
 library("kableExtra")
 library("R.utils")
-URL1="http://ftp.ensemblgenomes.org/pub/bacteria/release-53/fasta/bacteria_58_collection/saprospirales_bacterium_gca_003448025/cds/"
+URL1="http://ftp.ensemblgenomes.org/pub/bacteria/release-53/fasta/bacteria_58_collection/saprospirales_bacterium_gca_003448025/cds/Saprospirales_bacterium_gca_003448025.ASM344802v1.cds.all.fa.gz"
 download.file(URL1,destfile="Sbac_cds.fa.gz")
 gunzip("Sbac_cds.fa.gz")
 
@@ -21,7 +21,7 @@ gunzip("Sbac_cds.fa.gz")
 #listing the length of cds for E.coli and S.bacterium
 cds <- seqinr::read.fasta("ecoli_cds.fa")
 str(head(cds))
-seqinr:: read.fasta("Sbac_cds.fa")
+cds2 <- seqinr:: read.fasta("Sbac_cds.fa")
 
 
 
