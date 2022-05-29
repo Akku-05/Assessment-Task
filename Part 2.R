@@ -83,8 +83,12 @@ prot[[1]]
 aa <-unique(prot[[2]])
 aa <- aa[aa !="*"]
 
-count(prot[[1]],wordsize=1,alphabet=aa)
-protseq<- count(prot[[2]],wordsize=1,alphabet=aa)
+protein <- unlist(prot)
+protein
+protein_composition <- count(protein,alphabet=aa,wordsize=1)
+protein_composition
+
+protseq<- count(protein,alphabet=aa,wordsize=1)
 
 #Calculating protein sequence for S.bacterium
 translate(cds2[[1]])
@@ -93,13 +97,43 @@ prot2[[1]]
 aa2 <-unique(prot[[2]])
 aa2 <- aa2[aa2 !="*"]
 
-count(prot2[[1]],wordsize=1,alphabet=aa2)
-protseq2<- count(prot2[[2]],wordsize=1,alphabet=aa2)
+protein2 <- unlist(prot2)
+protein2
+protein_composition2 <- count(protein2,alphabet=aa2,wordsize=1)
+protein_composition2
+
+protseq2<- count(protein2,alphabet=aa2,wordsize=1)
+
+
 
 barplot(protseq,xlab="Protien",ylab="frequency", main="E.Coli CDS composition")
-barplot(protseq2,xlab="Protien",ylab="frequency", main="S.bacterium CDS composition")
+barplot(protseq2,xlab="Protien2",ylab="frequency", main="S.bacterium CDS composition")
 
 
+
+
+#Question4
+#Condon usage for E.coli
+
+uco(cds[[2]])
+codon_usage <- uco(cds[[2]],index = "rscu",as.data.frame =TRUE)
+
+codon_usage
+codon_usage%>%
+  kbl()%>%
+  kable_paper(full_width = F, html_font = "Arial")
+
+plot(codon_usage)
+
+#Condon usage for S.bacterium
+uco(cds2[[2]])
+codon_usage2 <- uco(cds2[[2]],index = "rscu",as.data.frame =TRUE)
+
+codon_usage2
+codon_usage2%>%
+  kbl()%>%
+  kable_paper(full_width = F, html_font = "Arial")
+plot(codon_usage2)
 
 
 
