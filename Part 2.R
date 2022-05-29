@@ -41,6 +41,8 @@ head( summary(cds2)[,1])
 len2 <- sapply(X=cds,FUN=length)
 median(len2)
 mean(len2)
+boxplot(len,len2,main= "Length of Coding Sequences", at=c(1,2),
+        names= c("E.Coli","S.bacterium"), ylab="Length")
 
 
 

@@ -77,15 +77,13 @@ a <- sd(NE2005)
 b <-sd(NE2020)
 c <-sd(SW2005)
 d <-sd(SW2020)
-boxplot(a,b,c,d, main= "Growth SD", at=c(1,2,3,4),
-        names= c("NE2005","NE2020","SW2005","
-                 SW2020"), ylab="nshvd")
+
 
 
 # question 8
 boxplot(a,b,c,d, main= "Growth SD", at=c(1,2,3,4),
         names= c("NE2005","NE2020","SW2005","
-                 SW2020"), ylab="nshvd")
+                 SW2020"), ylab="Growth(cm)")
 grid()
 
 #question9
