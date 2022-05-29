@@ -136,5 +136,57 @@ codon_usage2%>%
 plot(codon_usage2)
 
 
+#Question5
+#Kmer profiling for E.coli
+protein <- unlist(prot)
+
+Kmer1 <- count(protein,wordsize=3,alphabet=aa)
+Kmer2 <- count(protein,wordsize=4,alphabet=aa)
+Kmer3 <- count(protein,wordsize=5,alphabet=aa)
 
 
+str(Kmer1)
+head(Kmer1)
+aa[aa !="*"]
+
+myfreq1 <- count(protein,wordsize=3,alphabet=aa,freq=TRUE)
+myfreq2 <- count(protein,wordsize=4,alphabet=aa,freq=TRUE)
+myfreq3 <- count(protein,wordsize=5,alphabet=aa,freq=TRUE)
+head(myfreq1,n=10) #Kmer profiling for Kmers length 3
+tail(myfreq1,n=10)
+
+head(myfreq2,n=10) #Kmer profiling for Kmers length 4
+tail(myfreq2,n=10)
+
+head(myfreq3,n=10) #Kmer profiling for Kmers length 5
+tail(myfreq3,n=10)
+
+#Kmer profiling for S.bacterium
+protein2 <- unlist(prot2)
+
+Kmer4<- count(protein2,wordsize =3,alphabet=aa2)
+Kmer5<- count(protein2,wordsize = 4,alphabet=aa2)
+Kmer6<- count(protein2,wordsize = 5,alphabet=aa2)
+
+str(Kmer4)
+head(Kmer4)
+aa[aa !="*"]
+
+myfreq4<- count(protein2,wordsize =3,alphabet=aa2,freq = TRUE)
+myfreq5 <- count(protein2,wordsize = 4,alphabet=aa2,freq=TRUE)
+myfreq6 <- count(protein2,wordsize = 5,alphabet=aa2,freq=TRUE)
+head(myfreq4,n=10) #Kmer profiling for Kmers length 3
+tail(myfreq4,n=10)
+
+head(myfreq5,n=10) #Kmer profiling for Kmers length 4
+tail(myfreq5,n=10)
+
+head(myfreq6,n=10) #Kmer profiling for Kmers length 5
+tail(myfreq6,n=10)
+
+plot(myfreq1,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 3",ylab="Frequency")
+plot(myfreq2,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 4",ylab="Frequency")
+plot(myfreq3,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 5",ylab="Frequency")
+plot(myfreq4,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 3",ylab="Frequency")
+plot(myfreq5,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 4",ylab="Frequency")
+plot(myfreq6,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 5",ylab="Frequency")
