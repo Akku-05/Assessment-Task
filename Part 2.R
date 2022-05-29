@@ -44,6 +44,20 @@ mean(len2)
 boxplot(len,len2,main= "Length of Coding Sequences", at=c(1,2),
         names= c("E.Coli","S.bacterium"), ylab="Length")
 
+#Question 3
+GC(cds[[1]])
+count(cds[[1]],1)
+count(cds[[1]],2)
+count(cds[[1]],3)
+summary(cds[1:3])
+sum(sapply(cds[1:3],length))
+length(unlist(cds[1:3]))
+dna1 <- unlist(cds)
+GC(dna1)
+dna_composition <- count(dna1,1)
+
+barplot(dna_composition,xlab="nucleotides",ylab="frequency", main="E coli CDS composition")
+
 
 
 
