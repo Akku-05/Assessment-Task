@@ -45,6 +45,7 @@ boxplot(len,len2,main= "Length of Coding Sequences", at=c(1,2),
         names= c("E.Coli","S.bacterium"), ylab="Length")
 
 #Question 3
+#calculating dna composition frquency for E.coli
 GC(cds[[1]])
 count(cds[[1]],1)
 count(cds[[1]],2)
@@ -55,15 +56,48 @@ length(unlist(cds[1:3]))
 dna1 <- unlist(cds)
 GC(dna1)
 dna_composition <- count(dna1,1)
+#Calculating dna composition frequency for S.bacterium
 
-barplot(dna_composition,xlab="nucleotides",ylab="frequency", main="E coli CDS composition")
+GC(cds2[[1]])
+count(cds2[[1]],1)
+count(cds2[[1]],2)
+count(cds2[[1]],3)
+summary(cds2[1:3])
+sum(sapply(cds2[1:3],length))
+length(unlist(cds2[1:3]))
+dna2 <- unlist(cds2)
+GC(dna2)
+dna_composition2 <- count(dna2,1)
+
+
+barplot(dna_composition,xlab="nucleotides",ylab="frequency", main="E.Coli CDS composition")
+
+barplot(dna_composition2,xlab="nucleotides",ylab="frequency", main="S.bacterium CDS composition")
 
 
 
+#Calculating protein sequence for E.coli
+translate(cds[[1]])
+prot <- lapply(cds,translate)
+prot[[1]]
+aa <-unique(prot[[2]])
+aa <- aa[aa !="*"]
 
+count(prot[[1]],wordsize=1,alphabet=aa)
+protseq<- count(prot[[2]],wordsize=1,alphabet=aa)
 
+#Calculating protein sequence for S.bacterium
+translate(cds2[[1]])
+prot2 <- lapply(cds2,translate)
+prot2[[1]]
+aa2 <-unique(prot[[2]])
+aa2 <- aa2[aa2 !="*"]
 
+count(prot2[[1]],wordsize=1,alphabet=aa2)
+protseq2<- count(prot2[[2]],wordsize=1,alphabet=aa2)
 
+barplot(protseq,xlab="Protien",ylab="frequency", main="E.Coli CDS composition")
+barplot(protseq2,xlab="Protien",ylab="frequency", main="S.bacterium CDS composition")
 
 
 
