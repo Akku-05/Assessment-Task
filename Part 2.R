@@ -190,3 +190,4 @@ plot(myfreq3,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 5",ylab="F
 plot(myfreq4,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 3",ylab="Frequency")
 plot(myfreq5,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 4",ylab="Frequency")
 plot(myfreq6,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 5",ylab="Frequency")
+

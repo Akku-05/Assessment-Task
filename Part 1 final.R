@@ -106,10 +106,9 @@ res <- t.test (growthrateNE,growthrateSW)
 p.value <-res$p.value
 HEADER <- paste("P Value:", signif(p.value,3))
 
-mtext(HEADER)
-
 p.value2 <-wilcox.test(growthrateNE,growthrateSW)
 HEADER <- paste("P Value:", signif(p.value,3))
 
-mtext(HEADER)
+
+
 
