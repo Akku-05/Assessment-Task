@@ -105,7 +105,7 @@ aa <-unique(prot[[2]])
 aa <- aa[aa !="*"]
 
 protein <- unlist(prot)
-protein
+
 protein_composition <- count(protein,alphabet=aa,wordsize=1)
 protein_composition
 
@@ -119,9 +119,9 @@ aa2 <-unique(prot[[2]])
 aa2 <- aa2[aa2 !="*"]
 
 protein2 <- unlist(prot2)
-protein2
+
 protein_composition2 <- count(protein2,alphabet=aa2,wordsize=1)
-protein_composition2
+
 
 protseq2<- count(protein2,alphabet=aa2,wordsize=1)
 
@@ -168,20 +168,30 @@ Kmer2 <- count(protein,wordsize=4,alphabet=aa)
 Kmer3 <- count(protein,wordsize=5,alphabet=aa)
 
 
-str(Kmer1)
+
 head(Kmer1)
 aa[aa !="*"]
 
 myfreq1 <- count(protein,wordsize=3,alphabet=aa,freq=TRUE)
 myfreq2 <- count(protein,wordsize=4,alphabet=aa,freq=TRUE)
 myfreq3 <- count(protein,wordsize=5,alphabet=aa,freq=TRUE)
+
+#10 overexpressed kmers of length 3 for E.coli
 head(myfreq1,n=10) #Kmer profiling for Kmers length 3
+
+#10 underexpressed kmers of length 3 for E.coli
 tail(myfreq1,n=10)
 
+#10 overexpressed kmers of length 4 for E.coli
 head(myfreq2,n=10) #Kmer profiling for Kmers length 4
+
+#10 underexpressed kmers of length 5 for E.coli
 tail(myfreq2,n=10)
 
+#10 overexpressed kmers of length 3 for E.coli
 head(myfreq3,n=10) #Kmer profiling for Kmers length 5
+
+#10 underexpressed kmers of length 5 for E.coli
 tail(myfreq3,n=10)
 
 #Kmer profiling for S.bacterium
@@ -191,28 +201,35 @@ Kmer4<- count(protein2,wordsize =3,alphabet=aa2)
 Kmer5<- count(protein2,wordsize = 4,alphabet=aa2)
 Kmer6<- count(protein2,wordsize = 5,alphabet=aa2)
 
-str(Kmer4)
+
 head(Kmer4)
 aa[aa !="*"]
 
 myfreq4<- count(protein2,wordsize =3,alphabet=aa2,freq = TRUE)
 myfreq5 <- count(protein2,wordsize = 4,alphabet=aa2,freq=TRUE)
 myfreq6 <- count(protein2,wordsize = 5,alphabet=aa2,freq=TRUE)
+
+#10 overexpressed kmers of length 3 for S.bacterium
 head(myfreq4,n=10) #Kmer profiling for Kmers length 3
+
+#10 underexpressed kmers of length 3 for S.bacterium
 tail(myfreq4,n=10)
 
+#10 overexpressed kmers of length 4 for S.bacterium
 head(myfreq5,n=10) #Kmer profiling for Kmers length 4
+
+#10 underexpressed kmers of length 4 for S.bacterium
 tail(myfreq5,n=10)
 
+#10 overexpressed kmers of length 5 for S.bacterium
 head(myfreq6,n=10) #Kmer profiling for Kmers length 5
+
+#10 underexpressed kmers of length 4 for S.bacterium
 tail(myfreq6,n=10)
 
 plot(myfreq1,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 3",ylab="Frequency")
-plot(myfreq2,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 4",ylab="Frequency")
-plot(myfreq3,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 5",ylab="Frequency")
+
 plot(myfreq4,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 3",ylab="Frequency")
-plot(myfreq5,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 4",ylab="Frequency")
-plot(myfreq6,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 5",ylab="Frequency")
 
 ```
 
