@@ -106,8 +106,8 @@ protseq2<- count(protein2,alphabet=aa2,wordsize=1)
 
 
 
-barplot(protseq,xlab="Protien",ylab="frequency", main="E.Coli CDS composition")
-barplot(protseq2,xlab="Protien2",ylab="frequency", main="S.bacterium CDS composition")
+barplot(protseq,xlab="Protein composition for E.coli",ylab="frequency", main="E.Coli CDS composition")
+barplot(protseq2,xlab="Protein composition for S.bacterium",ylab="frequency", main="S.bacterium CDS composition")
 
 
 
