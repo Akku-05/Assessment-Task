@@ -222,22 +222,22 @@ myfreq6 <- count(protein2,wordsize = 5,alphabet=aa2,freq=TRUE)
 sfreq6 <- sort(myfreq6)
 
 
-#10 overexpressed kmers of length 3 for S.bacterium
+#10 under represented kmers of length 3 for S.bacterium
 head(myfreq4,n=10) #Kmer profiling for Kmers length 3
 
-#10 underexpressed kmers of length 3 for S.bacterium
+#10 over represented kmers of length 3 for S.bacterium
 tail(sfreq4,n=10)
 
-#10 overexpressed kmers of length 4 for S.bacterium
+#10 under represented kmers of length 4 for S.bacterium
 head(sfreq5,n=10) #Kmer profiling for Kmers length 4
 
-#10 underexpressed kmers of length 4 for S.bacterium
+#10 over represented kmers of length 4 for S.bacterium
 tail(sfreq5,n=10)
 
-#10 overexpressed kmers of length 5 for S.bacterium
+#10 under represented kmers of length 5 for S.bacterium
 head(sfreq6,n=10) #Kmer profiling for Kmers length 5
 
-#10 underexpressed kmers of length 4 for S.bacterium
+#10 over represented kmers of length 4 for S.bacterium
 tail(sfreq6,n=10)
 
 plot(sfreq1,main="Frequency of expression of kmers for E.coli",xlab = "Kmers of Length 3",ylab="Frequency")
