@@ -63,7 +63,11 @@ head(dna2)
 
 
 ```
-The number of coding sequences is comparitively more for S.bacterium as compared to E.coli.
+
+
+
+##Describe the differences between the two organisms
+##The number of coding sequences is comparitively more for S.bacterium as compared to E.coli.
 
 
 
@@ -92,9 +96,14 @@ boxplot(len3,len4,main= "Length of Coding Sequences", at=c(1,2),
         names= c("E.Coli","S.bacterium"), ylab="Length")
 
 ```
+
+
+
+
+
 ##Describe differences between both the organisms 
-The length of the coding sequence of E.coli is less than that of S.bacterium. Coding sequence length is importantly associated with biological timing. The smaller sequences produce smaller proteins faster, and these proteins often play a part in the regulation of longer proteins, which are expressed much later into the response.Meaning, that the small proteins in E.coli will be produced faster than S.bacterium.
-This difference in coding sequence length can be shown by mean,median and boxplot generated.
+##The length of the coding sequence of E.coli is less than that of S.bacterium. Coding sequence length is importantly associated with biological timing. The smaller sequences produce smaller proteins faster, and these proteins often play a part in the regulation of longer proteins, which are expressed much later into the response.Meaning, that the small proteins in E.coli will be produced faster than S.bacterium.
+###This difference in coding sequence length can be shown by mean,median and boxplot generated.
 
 
 ##Question 3
@@ -165,10 +174,13 @@ barplot(protseq,xlab="Protein composition",ylab="frequency", main="E.Coli Protei
 barplot(protseq2,xlab="Protein composition",ylab="frequency", main="S.bacterium Protein composition")
 
 ```
+
+
+
 ##Describe any differences between two organisms.
-The frquency of DNA bases in E.coli is fairly even however there are more guanine more frequently expressed than the three bases. The frequency of DNA bases in S.bacterium is more staggered, with adenocine being the most frequent and cytosine the being least frequent.
-The frquency of protein seuence in E.coli can be visualised by the barplot, which shows leucine, alanine and glycine as the most frequent amino acid and cystine, tryptophan and histadine being the least frequent amino acid.
-The frequency of DNA bases in E.coli is fairly even however there are more guanine more frequently expressed than the three bases. The frequency of DNA bases in S.bacterium is more staggered, with adenosine being the most frequent and cytosine the being least frequent thereby showing less differnece in the protein sequence.
+##The frquency of DNA bases in E.coli is fairly even however there are more guanine more frequently expressed than the three bases. The frequency of DNA bases in S.bacterium is more staggered, with adenocine being the most frequent and cytosine the being least frequent.
+##The frquency of protein seuence in E.coli can be visualised by the barplot, which shows leucine, alanine and glycine as the most frequent amino acid and cystine, tryptophan and histadine being the least frequent amino acid.
+##The frequency of DNA bases in E.coli is fairly even however there are more guanine more frequently expressed than the three bases. The frequency of DNA bases in S.bacterium is more staggered, with adenosine being the most frequent and cytosine the being least frequent thereby showing less differnece in the protein sequence.
 
 ##Question 4
 
@@ -194,9 +206,13 @@ codon_usage2%>%
 plot(codon_usage2, main="Codon Bias for S.bacterium")
 
 ```
-#Describe any differneces with repect to codon usage bias\
-Amino acid such as almine, valine and leucine are considered hydrophobic amino acid. When comparing E.coli protein sequence with S.bacterium protein sequence, the elanin concentration is higher in E.coli as well as the valine concentartion is also higher in E.coli than the S.bacterium, which makes the E.coli isb more than the S.bacterium.
-Amino acid such as serine, threonine and gultamine are considered as polar amino acid. In E.coli protein, serine has more concentration than in S.bacterium, which makes E.coli more polar protein sequence.
+
+
+
+
+#Describe any differneces with repect to codon usage bias?
+##Amino acid such as almine, valine and leucine are considered hydrophobic amino acid. When comparing E.coli protein sequence with S.bacterium protein sequence, the elanin concentration is higher in E.coli as well as the valine concentartion is also higher in E.coli than the S.bacterium, which makes the E.coli isb more than the S.bacterium.
+##Amino acid such as serine, threonine and gultamine are considered as polar amino acid. In E.coli protein, serine has more concentration than in S.bacterium, which makes E.coli more polar protein sequence.
 
 
 
@@ -291,6 +307,12 @@ plot(sfreq1,main="Frequency of expression of kmers for E.coli",xlab = "Kmers of 
 plot(sfreq4,main="Frequency of expression of kmers for S.bacterium",xlab = "Kmers of Length 3",ylab="Frequency")
 
 ```
+
+
+
+
+
+
 ##Describe the difference between the both organisms
-In the organism of interest the over expressed kmers are ILA and IRL, and  For E.coli are IIG and VII. The under expressed kmers for S.bacterium (organism of interest) are CNC and CIR while for E.coli CMY and TCF. No, over-and-under reprenstated kmer are different in both organisms. Plot to support the observation to provided. This difference is due to difference in evolutionary conservation of Kmer composition. 
+##In the organism of interest the over expressed kmers are ILA and IRL, and  For E.coli are IIG and VII. The under expressed kmers for S.bacterium (organism of interest) are CNC and CIR while for E.coli CMY and TCF. No, over-and-under reprenstated kmer are different in both organisms. Plot to support the observation to provided. This difference is due to difference in evolutionary conservation of Kmer composition. 
 
