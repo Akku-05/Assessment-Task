@@ -26,6 +26,24 @@ cds2 <- seqinr:: read.fasta("Sbac_cds.fa")
 CS_E.coli <- length(cds)   #coding seq for E.coli calculating the no. of coding sequences
 CS_S <- length(cds2) # coding seq for S.bacterium calculating the no. of coding sequences
 
+# Calculating the Coding DNA present in both the organisms
+len1 <- as.numeric(summary(cds)[,1])
+len2 <- as.numeric(summary(cds2)[,1])
+
+sum(len1)
+sum(len2)
+
+
+length(unlist(cds[1:3]))
+length(unlist(cds2[1:3]))
+
+
+
+dna1 <- unlist(cds)
+dna2 <- unlist(cds2)
+head(dna1)
+head(dna2)
+
 #QUESTION 2
 head(summary(cds))
 str(summary(cds))

@@ -5,11 +5,13 @@ date: '2022-06-01'
 output: html_document
 ---
 
-##Part 2 for Bioinformatics Repor
+##Part 2 for Bioinformatics Report
 
+## Source: The code for this Markdown script can be found on our Repository on Github, The link is provided below:
+## Source = https://github.com/Akku-05/Assessment-Task
 
 ##Question 1
-
+Downloading coding sequeneces for E.coli and S.bacterium. 
 ```{r, question 1}
 
 library("seqinr")
@@ -30,7 +32,7 @@ URL1="http://ftp.ensemblgenomes.org/pub/bacteria/release-53/fasta/bacteria_58_co
 download.file(URL1,destfile="Sbac_cds.fa.gz")
 gunzip("Sbac_cds.fa.gz")
 
-
+# Calculating the no. of coding sequences present
 
 #listing the length of cds for E.coli and S.bacterium
 cds <- seqinr::read.fasta("ecoli_cds.fa")
@@ -40,30 +42,53 @@ cds2 <- seqinr:: read.fasta("Sbac_cds.fa")
 CS_E.coli <- length(cds)   #coding seq for E.coli calculating the no. of coding sequences
 CS_S <- length(cds2) # coding seq for S.bacterium calculating the no. of coding sequences
 
+# Calculating the Coding DNA present in both the organisms
+len1 <- as.numeric(summary(cds)[,1])
+len2 <- as.numeric(summary(cds2)[,1])
+
+sum(len1)
+sum(len2)
+
+
+length(unlist(cdse[1:3]))
+length(unlist(cdss[1:3]))
+
+
+
+dna1 <- unlist(cds)
+dna2 <- unlist(cds2)
+head(dna1)
+head(dna2)
+
+
 
 ```
 ##Question 2
 
+##Length of all coding sequences
 ```{r, question 2}
-
+# Mean and Median for E.coli
 head(summary(cds))
 str(summary(cds))
 
 head( summary(cds)[,1])
-len <- sapply(X=cds,FUN=length) #calculating the
-median(len)
-mean(len)
-
+len3 <- sapply(X=cds,FUN=length) #calculating the
+median(len3)
+mean(len3)
+#Mean and median for S.bacterium
 head(summary(cds2))
 str(summary(cds2))
 head( summary(cds2)[,1])
-len2 <- sapply(X=cds,FUN=length)
-median(len2)
-mean(len2)
-boxplot(len,len2,main= "Length of Coding Sequences", at=c(1,2),
+len4 <- sapply(X=cds,FUN=length)
+median(len4)
+mean(len4)
+
+#Boxplot of coding sequences
+boxplot(len3,len4,main= "Length of Coding Sequences", at=c(1,2),
         names= c("E.Coli","S.bacterium"), ylab="Length")
 
 ```
+##Question 3
 
 ```{r, question 3}
 #calculating dna composition frquency for E.coli
@@ -90,7 +115,7 @@ dna2 <- unlist(cds2)
 GC(dna2)
 dna_composition2 <- count(dna2,1)
 
-
+# Bar plot fpr DNA composition
 barplot(dna_composition,xlab="nucleotides",ylab="frequency", main="E.Coli CDS composition")
 
 barplot(dna_composition2,xlab="nucleotides",ylab="frequency", main="S.bacterium CDS composition")
@@ -125,7 +150,7 @@ protein_composition2 <- count(protein2,alphabet=aa2,wordsize=1)
 
 protseq2<- count(protein2,alphabet=aa2,wordsize=1)
 
-
+#Barplots for Protein Composition
 
 barplot(protseq,xlab="Protein composition",ylab="frequency", main="E.Coli CDS composition")
 barplot(protseq2,xlab="Protein composition",ylab="frequency", main="S.bacterium CDS composition")

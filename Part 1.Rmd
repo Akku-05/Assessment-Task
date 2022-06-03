@@ -6,18 +6,22 @@ output: html_document
 ---
 
 ##PART 1
+## Source: The code for this Markdown script can be found on our Repository on Github, The link is provided below:
+## Source = https://github.com/Akku-05/Assessment-Task
 
 ##Question 1
 
+##Dowload the gene expression data and change the row names to gene expression name
 ```{r, part 1}
-
+#Downloading the gene expression data provided on the unit site
 #gene expression data
 
 URL= "https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessment_task3/bioinfo_asst3_part1_files/gene_expression.tsv"
 gene= "gene_expression.tsv"
 download.file(URL,destfile=gene)
+#Reading the .tsv data into R
 GE <- read.delim("gene_expression.tsv")
-str(GE)
+
 #Changing row names to gene expression name.
 colnames(GE)
 df <- data.frame(GE)
@@ -39,9 +43,10 @@ head(df) %>%
 
 ##QUESTION 2
 
+##Make a new column for mean of gene expression and find the values for top 6 genes
 ```{r,question2}
 
-colMeans(df[1:6,1:3])
+colMeans(df[1:6,1:3]) 
 
 rowMeans(df[1:6,1:3])
 
@@ -55,15 +60,18 @@ head(GeneMean) %>%
 
 ##QUESTION3
 
+##10 gene with highest gene expression
 ```{r, QUESTION3}
 
+# Defining variable B as mean in decreasing order
 B <-order(df$mean, decreasing=TRUE)
-HighestG <-B[1:10]
-head(HighestG)
+HighestG <-B[1:10] 
+head(HighestG) # Highest mean expression
 ```
 
 ##QUESTION 4
 
+##Number of genes with mean less that 10
 ```{r, question 4}
 df$mean < 10
 Mean_filtered <- df[which(df$mean < 10),]
@@ -72,12 +80,14 @@ nrow(Mean_filtered)
 
 ##Question 5
 
+##Histogram of mean values
 ```{r, question 5}
 hist(df$mean, xlab = "mean", ylab = "expression", main = "Gene Expression")
 ```
 
 ##Question 6
 
+##Downloading growth data csv file into R and determining column names
 ```{r}
 URL= "https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessment_task3/bioinfo_asst3_part1_files/growth_data.csv"
 growth= "growth_data.csv"
@@ -88,6 +98,7 @@ colnames(GD)
 
 ##Question 7
 
+##Mean and standard deviation to tree circumferences at the start and end of the study for both sites
 ```{r, question 7}
 NE<-subset(GD,Site =="northeast")
 SW <- subset(GD,Site =="southwest")
@@ -107,8 +118,9 @@ d <-sd(SW2020)
 
 ##Question 8
 
+##Boxplot for tree circumferences of both the sites from start and end of study
 ```{r, Question 8}
-boxplot(a,b,c,d, main= "Growth SD", at=c(1,2,3,4),
+boxplot(NE2005,NE2020,SW2005,SW2020, main= "Growth of trees", at=c(1,2,3,4),
         names= c("NE2005","NE2020","SW2005","
  
                                  SW2020"), ylab="Growth(cm)")
@@ -117,6 +129,7 @@ grid()
 
 ##Question 9
 
+##Mean Growth over the 10 years at each site
 ```{r, question 9}
 NE2010 <- NE$Circumf_2010_cm
 
@@ -133,12 +146,13 @@ MeanGrowth      #Mean growth rate of both the site for past 10 years
 
 ##Question 10
 
+##T.test and wilcox.test to estimate P. value for difference in growth at 3 sites
 ```{r, question 10}
-res <- t.test (growthrateNE,growthrateSW)
-p.value <-res$p.value
+res <- t.test (growthrateNE,growthrateSW)  #Defining res as t.test for growth rate at both the sites
+p.value <-res$p.value # p value for growth rate
 HEADER <- paste("P Value:", signif(p.value,3))
 
-p.value2 <-wilcox.test(growthrateNE,growthrateSW)
+p.value2 <-wilcox.test(growthrateNE,growthrateSW) # p value for growth rate
 HEADER <- paste("P Value:", signif(p.value,3))
 
 HEADER

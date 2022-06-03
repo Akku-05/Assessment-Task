@@ -4,12 +4,10 @@ URL= "https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessme
 gene= "gene_expression.tsv"
 download.file(URL,destfile=gene)
 
-URL= "https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessment_task3/bioinfo_asst3_part1_files/growth_data.csv"
-growth= "growth_data.csv"
-download.file(URL,destfile=growth)
+
 
 GE <- read.delim("gene_expression.tsv")
-GD <-read.csv("growth_data.csv")
+
 str(GE)
 #Changing row names to gene expression name.
 row.names(GE) 
@@ -58,7 +56,11 @@ subset(df,df$mean < 10)
 hist(df$mean, xlab = "mean", ylab = "expression", main = "Gene Expression")
 
 #question 6 (already downloaded file)
-
+URL= "https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessment_task3/bioinfo_asst3_part1_files/growth_data.csv"
+growth= "growth_data.csv"
+download.file(URL,destfile=growth)
+GD <-read.csv("growth_data.csv")
+colnames(GD)
 GD
 colnames(GD)
 
@@ -73,17 +75,18 @@ mean(NE2005)
 mean(NE2020)
 mean(SW2005)
 mean(SW2020)
-a <- sd(NE2005)
-b <-sd(NE2020)
-c <-sd(SW2005)
-d <-sd(SW2020)
+sd(NE2005)
+sd(NE2020)
+sd(SW2005)
+sd(SW2020)
 
 
 
 # question 8
-boxplot(a,b,c,d, main= "Growth SD", at=c(1,2,3,4),
+boxplot(NE2005,NE2020,SW2005,SW2020, main= "Growth of trees", at=c(1,2,3,4),
         names= c("NE2005","NE2020","SW2005","
-                 SW2020"), ylab="Growth(cm)")
+ 
+                                 SW2020"), ylab="Growth(cm)")
 grid()
 
 #question9
