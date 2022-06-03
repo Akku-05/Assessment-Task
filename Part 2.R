@@ -45,22 +45,26 @@ head(dna1)
 head(dna2)
 
 #QUESTION 2
+# Mean and Median for E.coli
 head(summary(cds))
 str(summary(cds))
 
 head( summary(cds)[,1])
-len <- sapply(X=cds,FUN=length) #calculating the
-median(len)
-mean(len)
-
+len3 <- sapply(X=cds,FUN=length) #calculating the
+median(len3)
+mean(len3)
+#Mean and median for S.bacterium
 head(summary(cds2))
 str(summary(cds2))
 head( summary(cds2)[,1])
-len2 <- sapply(X=cds,FUN=length)
-median(len2)
-mean(len2)
-boxplot(len,len2,main= "Length of Coding Sequences", at=c(1,2),
+len4 <- sapply(X=cds2,FUN=length)
+median(len4)
+mean(len4)
+
+#Boxplot of coding sequences
+boxplot(len3,len4,main= "Length of Coding Sequences", at=c(1,2),
         names= c("E.Coli","S.bacterium"), ylab="Length")
+
 
 #Question 3
 #calculating dna composition frquency for E.coli
@@ -87,10 +91,10 @@ dna2 <- unlist(cds2)
 GC(dna2)
 dna_composition2 <- count(dna2,1)
 
+# Bar plot fpr DNA composition
+barplot(dna_composition,xlab="nucleotides",ylab="frequency", main="E.Coli DNA composition")
 
-barplot(dna_composition,xlab="nucleotides",ylab="frequency", main="E.Coli CDS composition")
-
-barplot(dna_composition2,xlab="nucleotides",ylab="frequency", main="S.bacterium CDS composition")
+barplot(dna_composition2,xlab="nucleotides",ylab="frequency", main="S.bacterium DNA composition")
 
 
 
@@ -102,7 +106,7 @@ aa <-unique(prot[[2]])
 aa <- aa[aa !="*"]
 
 protein <- unlist(prot)
-protein
+
 protein_composition <- count(protein,alphabet=aa,wordsize=1)
 protein_composition
 
@@ -116,16 +120,17 @@ aa2 <-unique(prot[[2]])
 aa2 <- aa2[aa2 !="*"]
 
 protein2 <- unlist(prot2)
-protein2
+
 protein_composition2 <- count(protein2,alphabet=aa2,wordsize=1)
-protein_composition2
+
 
 protseq2<- count(protein2,alphabet=aa2,wordsize=1)
 
+#Barplots for Protein Composition
 
+barplot(protseq,xlab="Protein composition",ylab="frequency", main="E.Coli Protein composition")
+barplot(protseq2,xlab="Protein composition",ylab="frequency", main="S.bacterium Protein composition")
 
-barplot(protseq,xlab="Protein composition for E.coli",ylab="frequency", main="E.Coli CDS composition")
-barplot(protseq2,xlab="Protein composition for S.bacterium",ylab="frequency", main="S.bacterium CDS composition")
 
 
 
@@ -163,21 +168,38 @@ Kmer2 <- count(protein,wordsize=4,alphabet=aa)
 Kmer3 <- count(protein,wordsize=5,alphabet=aa)
 
 
-str(Kmer1)
+
 head(Kmer1)
 aa[aa !="*"]
 
 myfreq1 <- count(protein,wordsize=3,alphabet=aa,freq=TRUE)
+sfreq1 <- sort(myfreq1)
+
 myfreq2 <- count(protein,wordsize=4,alphabet=aa,freq=TRUE)
+sfreq2 <- sort(myfreq2)
+
 myfreq3 <- count(protein,wordsize=5,alphabet=aa,freq=TRUE)
-head(myfreq1,n=10) #Kmer profiling for Kmers length 3
-tail(myfreq1,n=10)
+sfreq3 <- sort(myfreq3)
 
-head(myfreq2,n=10) #Kmer profiling for Kmers length 4
-tail(myfreq2,n=10)
 
-head(myfreq3,n=10) #Kmer profiling for Kmers length 5
-tail(myfreq3,n=10)
+
+#10 overexpressed kmers of length 3 for E.coli
+head(sfreq1,n=10) #Kmer profiling for Kmers length 3
+
+#10 underexpressed kmers of length 3 for E.coli
+tail(sfreq1,n=10)
+
+#10 overexpressed kmers of length 4 for E.coli
+head(sfreq2,n=10) #Kmer profiling for Kmers length 4
+
+#10 underexpressed kmers of length 5 for E.coli
+tail(sfreq2,n=10)
+
+#10 overexpressed kmers of length 3 for E.coli
+head(sfreq3,n=10) #Kmer profiling for Kmers length 5
+
+#10 underexpressed kmers of length 5 for E.coli
+tail(sfreq3,n=10)
 
 #Kmer profiling for S.bacterium
 protein2 <- unlist(prot2)
@@ -186,26 +208,38 @@ Kmer4<- count(protein2,wordsize =3,alphabet=aa2)
 Kmer5<- count(protein2,wordsize = 4,alphabet=aa2)
 Kmer6<- count(protein2,wordsize = 5,alphabet=aa2)
 
-str(Kmer4)
+
 head(Kmer4)
 aa[aa !="*"]
 
 myfreq4<- count(protein2,wordsize =3,alphabet=aa2,freq = TRUE)
+sfreq4 <- sort(myfreq4)
+
 myfreq5 <- count(protein2,wordsize = 4,alphabet=aa2,freq=TRUE)
+sfreq5 <- sort(myfreq5)
+
 myfreq6 <- count(protein2,wordsize = 5,alphabet=aa2,freq=TRUE)
+sfreq6 <- sort(myfreq6)
+
+
+#10 overexpressed kmers of length 3 for S.bacterium
 head(myfreq4,n=10) #Kmer profiling for Kmers length 3
-tail(myfreq4,n=10)
 
-head(myfreq5,n=10) #Kmer profiling for Kmers length 4
-tail(myfreq5,n=10)
+#10 underexpressed kmers of length 3 for S.bacterium
+tail(sfreq4,n=10)
 
-head(myfreq6,n=10) #Kmer profiling for Kmers length 5
-tail(myfreq6,n=10)
+#10 overexpressed kmers of length 4 for S.bacterium
+head(sfreq5,n=10) #Kmer profiling for Kmers length 4
 
-plot(myfreq1,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 3",ylab="Frequency")
-plot(myfreq2,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 4",ylab="Frequency")
-plot(myfreq3,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 5",ylab="Frequency")
-plot(myfreq4,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 3",ylab="Frequency")
-plot(myfreq5,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 4",ylab="Frequency")
-plot(myfreq6,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 5",ylab="Frequency")
+#10 underexpressed kmers of length 4 for S.bacterium
+tail(sfreq5,n=10)
 
+#10 overexpressed kmers of length 5 for S.bacterium
+head(sfreq6,n=10) #Kmer profiling for Kmers length 5
+
+#10 underexpressed kmers of length 4 for S.bacterium
+tail(sfreq6,n=10)
+
+plot(sfreq1,main="Frequency of expression of kmers for E.coli",xlab = "Kmers of Length 3",ylab="Frequency")
+
+plot(sfreq4,main="Frequency of expression of kmers for S.bacterium",xlab = "Kmers of Length 3",ylab="Frequency")

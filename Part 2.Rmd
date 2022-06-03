@@ -219,27 +219,33 @@ head(Kmer1)
 aa[aa !="*"]
 
 myfreq1 <- count(protein,wordsize=3,alphabet=aa,freq=TRUE)
+sfreq1 <- sort(myfreq1)
+
 myfreq2 <- count(protein,wordsize=4,alphabet=aa,freq=TRUE)
+sfreq2 <- sort(myfreq2)
+
 myfreq3 <- count(protein,wordsize=5,alphabet=aa,freq=TRUE)
+sfreq3 <- sort(myfreq3)
+
 
 
 #10 overexpressed kmers of length 3 for E.coli
-head(myfreq1,n=10) #Kmer profiling for Kmers length 3
+head(sfreq1,n=10) #Kmer profiling for Kmers length 3
 
 #10 underexpressed kmers of length 3 for E.coli
-tail(myfreq1,n=10)
+tail(sfreq1,n=10)
 
 #10 overexpressed kmers of length 4 for E.coli
-head(myfreq2,n=10) #Kmer profiling for Kmers length 4
+head(sfreq2,n=10) #Kmer profiling for Kmers length 4
 
 #10 underexpressed kmers of length 5 for E.coli
-tail(myfreq2,n=10)
+tail(sfreq2,n=10)
 
 #10 overexpressed kmers of length 3 for E.coli
-head(myfreq3,n=10) #Kmer profiling for Kmers length 5
+head(sfreq3,n=10) #Kmer profiling for Kmers length 5
 
 #10 underexpressed kmers of length 5 for E.coli
-tail(myfreq3,n=10)
+tail(sfreq3,n=10)
 
 #Kmer profiling for S.bacterium
 protein2 <- unlist(prot2)
@@ -253,31 +259,38 @@ head(Kmer4)
 aa[aa !="*"]
 
 myfreq4<- count(protein2,wordsize =3,alphabet=aa2,freq = TRUE)
+sfreq4 <- sort(myfreq4)
+
 myfreq5 <- count(protein2,wordsize = 4,alphabet=aa2,freq=TRUE)
+sfreq5 <- sort(myfreq5)
+
 myfreq6 <- count(protein2,wordsize = 5,alphabet=aa2,freq=TRUE)
+sfreq6 <- sort(myfreq6)
+
 
 #10 overexpressed kmers of length 3 for S.bacterium
 head(myfreq4,n=10) #Kmer profiling for Kmers length 3
 
 #10 underexpressed kmers of length 3 for S.bacterium
-tail(myfreq4,n=10)
+tail(sfreq4,n=10)
 
 #10 overexpressed kmers of length 4 for S.bacterium
-head(myfreq5,n=10) #Kmer profiling for Kmers length 4
+head(sfreq5,n=10) #Kmer profiling for Kmers length 4
 
 #10 underexpressed kmers of length 4 for S.bacterium
-tail(myfreq5,n=10)
+tail(sfreq5,n=10)
 
 #10 overexpressed kmers of length 5 for S.bacterium
-head(myfreq6,n=10) #Kmer profiling for Kmers length 5
+head(sfreq6,n=10) #Kmer profiling for Kmers length 5
 
 #10 underexpressed kmers of length 4 for S.bacterium
-tail(myfreq6,n=10)
+tail(sfreq6,n=10)
 
-plot(myfreq1,main="Kmer Profiling for E.Coli",xlab = "Kmers of Length 3",ylab="Frequency")
+plot(sfreq1,main="Frequency of expression of kmers for E.coli",xlab = "Kmers of Length 3",ylab="Frequency")
 
-plot(myfreq4,main="Kmer Profiling for S.bacterium",xlab = "Kmers of Length 3",ylab="Frequency")
+plot(sfreq4,main="Frequency of expression of kmers for S.bacterium",xlab = "Kmers of Length 3",ylab="Frequency")
 
 ```
-
+##Describe the difference between the both organisms
+In the organism of interest the over expressed kmers are ILA and IRL, and  For E.coli are IIG and VII. The under expressed kmers for S.bacterium (organism of interest) are CNC and CIR while for E.coli CMY and TCF. No, over-and-under reprenstated kmer are different in both organisms. Plot to support the observation to provided. This difference is due to difference in evolutionary conservation of Kmer composition. 
 
